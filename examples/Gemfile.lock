@@ -1,0 +1,18 @@
+GIT
+  remote: https://github.com/nretnilkram/nretnil-password
+  revision: 61f2691c0675cf6ced1962dd1f9e09098acd3093
+  specs:
+    nretnil-password (0.1.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  nretnil-password!
+
+BUNDLED WITH
+   1.11.2
