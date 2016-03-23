@@ -1,5 +1,5 @@
 module Nretnil
-  module Translate
-    VERSION = '0.0.1'
+  class Translate
+    VERSION = '0.0.2'
   end
 end

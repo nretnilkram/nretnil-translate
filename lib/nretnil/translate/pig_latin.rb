@@ -1,7 +1,7 @@
 require 'rubygems'
 
 module Nretnil
-  module Translate
+  class Translate
 
     VOWELS = "AEIOUaeiou"     # Standard English vowels
     VOWELSY = "AEIOUaeiouYy"  # Sometimes "Y" and "W", but only "Y" here
@@ -9,29 +9,29 @@ module Nretnil
     AY = "ay"                 # Consonant word suffix
     LEARNMODE = false         # Learn Mode Default
 
-    def self.word_to_pig_latin (word, learn_mode = LEARNMODE)
+    def word_to_pig_latin (word, learn_mode = LEARNMODE)
 
-      first_letter = word[0,1] # First character of word
-      cap = first_letter == first_letter.upcase ? true : false  # Capitalization flag
+      first_letter = word[0,1]
+      cap = first_letter == first_letter.upcase ? true : false
       suffix = ""
 
-      if !VOWELS.index(first_letter).nil? # Word starts with a vowel?
-        suffix = WAY  # Suffix is "way"
+      if !VOWELS.index(first_letter).nil? # If word starts with a vowel
+        suffix = WAY
         last_letter = word[((word.length)-1),word.length]  # Get last char of word
 
-        if (last_letter == last_letter.upcase && word.length > 1)  # If last char of word is upcase (except "I")
+        if (last_letter == last_letter.upcase) # && word.length > 1)
           suffix = WAY.upcase  # Make suffix upcase to match
         end
 
-      else  # Word starts with consonant(s) -- more complex processing required
+      else
 
         if (word != word.upcase)  # If not all caps
           first_letter = first_letter.downcase  # Format for display
         end
 
-        is = word.length;  # Only process n characters
+        count = word.length  # Only process n characters
 
-        while ( is-=1 ) do # For typos and any possible all-consonant "words"
+        while ( count-=1 ) do
 
           suffix += first_letter  # Build suffix with leading consonants
           last_letter = first_letter  # Save last character (for "qu" testing)
@@ -41,25 +41,26 @@ module Nretnil
           word = word[1, word.length]  # Remove first/next char of word
           first_letter = word[0,1]  # Get next/first char of new word
 
-          if !VOWELS.index(first_letter).nil? # Vowel signals end
+          if !VOWELSY.index(first_letter).nil? # Vowel signals end
             if (!((last_letter == "q" || last_letter == "Q") && (first_letter == "u" || first_letter == "U")))  # Check for "qu"
               break  # Quit loop if we hit a vowel or "y" (unless "qu")
             end
           end
 
-        end  # while
+        end
 
         if (cap_flag)  # If the first char of the new word is capitalized
-          suffix += AY.upcase  # Append "AY"
+          suffix += AY.upcase
         else
-          suffix += AY  # Append "ay"
+          suffix += AY
         end
+
       end
 
       word += (learn_mode ? "-" : "") + suffix  # Put final translated word together
 
       if (cap)  # If original word was capitalized…
-        first_letter = word[0,1]  # …ensure translated word is too
+        first_letter = word[0,1]
         word = first_letter.upcase + word[1, word.length]
       end
 
@@ -69,14 +70,13 @@ module Nretnil
 
     def self.pig_latin(text, learn_mode = LEARNMODE)
 
+      translate = Translate.new
       sNewline = "\n"  # Other systems use this for New Line (Mac, etc.)
       pig_latin = ""  # End result stored here
       word = ""      # Clear word text
       real = true    # We start off working on a real word
 
       for i in 0..text.length
-
-        # The null at the end of the text signals final end of text/word
 
         char = text[i]  # Get the next character
 
@@ -91,22 +91,22 @@ module Nretnil
           word += char  # Append alpha character to word
 
         else  # A non-alpha character
-          if (real && word != "") # If word mode and a word was found
-            word = word_to_pig_latin(word, learn_mode)  # Translate word to Pig Latin
 
-            pig_latin += word  # Append translated word to line
+          if (real && word != "") # If word mode and a word was found
+            pig_latin += translate.word_to_pig_latin(word, learn_mode)  # Translate and Append word to result
             word = ""  # Clear word text
           end
 
           if !char.nil?
-            word += char;  # Build punctuation, symbol & whitespace "word"
-            real = false;  # Switch to non-word/separator mode
+            word += char  # Build punctuation, symbol & whitespace "word"
+            real = false  # Switch to non-word/separator mode
           end
+
         end
 
-      end  # for
+      end
 
-      return pig_latin += word;  # Append final line and word to result
+      return pig_latin += word
 
     end
 
