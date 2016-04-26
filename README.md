@@ -2,16 +2,29 @@
 
 <h1>Usage:</h1>
 
-<h3>Translate</h3>
+<h3>Pig Latin Translate</h3>
+<p>This will take each work in your text and translate it into Pig Latin.</p>
 
 ```ruby
 
 text=Pangram anyone? A quick brown fox jumped over the lazy dog. Pack my box with five dozen liquor jugs. A quick movement of the enemy will jeopardize six gunboats. The five boxing wizards jump quickly.
 
 Nretnil::Translate.pig_latin(text)
-# => Angrampay anyoneway? Away ickquay ownbray oxfay umpedjay overway ethay azylay ogday. Ackpay myay oxbay ithway ivefay ozenday iquorlay ugsjay. Away ickquay ovementmay ofway ethay enemyway illway eopardizejay ixsay unboatsgay. Ethay ivefay oxingbay izardsway umpjay icklyquay.
+# => Angrampay anyoneway? AWAY ickquay ownbray oxfay umpedjay overway ethay azylay ogday. Ackpay ymay oxbay ithway ivefay ozenday iquorlay ugsjay. AWAY ickquay ovementmay ofway ethay enemyway illway eopardizejay ixsay unboatsgay. Ethay ivefay oxingbay izardsway umpjay icklyquay.
 
 Nretnil::Translate.pig_latin(text,learn_mode=true)
-# => Angram-pay anyone-way? A-way ick-quay own-bray ox-fay umped-jay over-way e-thay azy-lay og-day. Ack-pay -myay ox-bay ith-way ive-fay ozen-day iquor-lay ugs-jay. A-way ick-quay ovement-may of-way e-thay enemy-way ill-way eopardize-jay ix-say unboats-gay. E-thay ive-fay oxing-bay izards-way ump-jay ickly-quay.
+# => Angram-pay anyone-way? A-WAY ick-quay own-bray ox-fay umped-jay over-way e-thay azy-lay og-day. Ack-pay y-may ox-bay ith-way ive-fay ozen-day iquor-lay ugs-jay. A-WAY ick-quay ovement-may of-way e-thay enemy-way ill-way eopardize-jay ix-say unboats-gay. E-thay ive-fay oxing-bay izards-way ump-jay ickly-quay.
+
+```
+
+<h3>Scramble Translate</h3>
+<p>This will take each work in your text and manipulate it by keeping the first and last letter the same and scrambling the middle of it.  This should keep the text readable.</p>
+
+```ruby
+
+text=Pangram anyone? A quick brown fox jumped over the lazy dog. Pack my box with five dozen liquor jugs. A quick movement of the enemy will jeopardize six gunboats. The five boxing wizards jump quickly.
+
+Nretnil::Translate.scramble(text)
+# => Pnagarm anoyne? A qcuik borwn fox jmuped over the lazy dog. Pcak my box with fvie dezon luiqor jgus. A qcuik mevmenot of the emney will jpoerzdiae six gbnuotas. The fvie boixng wadirzs jmup qcuikly.
 
 ```

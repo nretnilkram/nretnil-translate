@@ -1,3 +1,7 @@
+<h4>0.0.3</h4>
+
+* Added scramble translate
+
 <h4>0.0.2</h4>
 
 * Code Cleanup

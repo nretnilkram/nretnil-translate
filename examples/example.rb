@@ -2,7 +2,9 @@ require 'rubygems'
 require 'nretnil-translate'
 
 
-puts "<h3>Translate</h3>"
+puts "<h3>Pig Latin Translate</h3>"
+puts "<p>This will take each work in your text and translate it into Pig Latin.</p>"
+
 puts "\n"
 
 puts "```ruby"
@@ -18,6 +20,22 @@ puts "\n"
 
 puts "Nretnil::Translate.pig_latin(text,learn_mode=true)"
 puts "# => " + Nretnil::Translate.pig_latin(text,learn_mode=true).to_s
+puts "\n"
+
+puts "```"
+puts "\n"
+
+puts "<h3>Scramble Translate</h3>"
+puts "<p>This will take each work in your text and manipulate it by keeping the first and last letter the same and scrambling the middle of it.  This should keep the text readable.</p>"
+puts "\n"
+
+puts "```ruby"
+puts "\n"
+
+puts "text=#{text}\n\n"
+
+puts "Nretnil::Translate.scramble(text)"
+puts "# => " + Nretnil::Translate.scramble(text).to_s
 puts "\n"
 
 puts "```"
