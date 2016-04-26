@@ -6,12 +6,12 @@ Gem::Specification.new do |s|
   s.name        = "nretnil-translate"
   s.version     = Nretnil::Translate::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Mark Lintern"]
-  s.email       = ["lintern.mark@gmail.com"]
+  s.authors     = ["Nretnil Kram"]
+  s.email       = ["signkram@gmail.com"]
   s.homepage    = "http://github.com/nretnilkram/nretnil-translate"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Translation Gem"
-  s.description = "This Gem will assit with specific translations."
+  s.description = "This Gem will assist with specific translations."
   s.license     = 'MIT'
   s.extra_rdoc_files = [
     "LICENSE",
