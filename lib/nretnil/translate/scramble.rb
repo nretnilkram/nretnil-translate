@@ -1,8 +1,10 @@
+# encoding: utf-8
+# frozen_string_literal: true
 require 'rubygems'
 
 module Nretnil
+  # Translate
   class Translate
-
     ####
     # Name: shuffle
     # Description: returns same string with characters in random order
@@ -20,7 +22,7 @@ module Nretnil
     # Response: string
     ####
     def first(word)
-      word[0,1]
+      word[0, 1]
     end
 
     ####
@@ -31,7 +33,7 @@ module Nretnil
     ####
     def last(word)
       length = word.length
-      word[length-1,length]
+      word[length - 1, length]
     end
 
     ####
@@ -42,25 +44,22 @@ module Nretnil
     ####
     def middle(word)
       length = word.length
-      length > 2 ? word[1,length-2] : ""
+      length > 2 ? word[1, length - 2] : ''
     end
 
     def self.scramble(text)
-
       translate = Translate.new
       scrambled_text = text
-      words = text.gsub(/<\/?[^>]+>/, '').gsub(/[!@#`$%^&*()-=_+|;:",.<>?]/, '').gsub('\'s', '').split(" ").uniq
+      words = text.gsub(%r{<\/?[^>]+>}, '').gsub(/[!@#`$%^&*()-=_+|;:",.<>?]/, '').gsub('\'s', '').split(' ').uniq
 
       words.each do |word|
         scrambled_word = word.length > 2 ? translate.first(word) + translate.shuffle(translate.middle(word)) + translate.last(word) : word
-        scrambled_text = scrambled_text.gsub(' '+word+' ',' '+scrambled_word+' ')
-        scrambled_text = scrambled_text.gsub(word+' ',scrambled_word+' ')
-        scrambled_text = scrambled_text.gsub(' '+word,' '+scrambled_word)
+        scrambled_text = scrambled_text.gsub(' ' + word + ' ', ' ' + scrambled_word + ' ')
+        scrambled_text = scrambled_text.gsub(word + ' ', scrambled_word + ' ')
+        scrambled_text = scrambled_text.gsub(' ' + word, ' ' + scrambled_word)
       end
 
-      return scrambled_text
-
+      scrambled_text
     end
-
   end
 end
