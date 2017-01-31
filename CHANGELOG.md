@@ -1,3 +1,7 @@
+<h4>0.0.5</h4>
+
+* parseltongue translation from english for known words, others left alone.
+
 <h4>0.0.4</h4>
 
 * rubocop

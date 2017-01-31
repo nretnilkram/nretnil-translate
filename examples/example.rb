@@ -3,6 +3,33 @@
 require 'rubygems'
 require 'nretnil-translate'
 
+puts '<h3>Parseltongue Translate</h3>'
+puts '<p>This function will take english words and translate them to parseltoungue if they match known vocabulary; ignoring the rest.</p>'
+
+puts "\n"
+
+puts '```ruby'
+puts "\n"
+
+text = 'I like to watch the animals play in the field from my window.'
+
+puts "text=#{text}\n\n"
+
+puts 'Nretnil::Translate.parseltongue(text)'
+puts '# => ' + Nretnil::Translate.parseltongue(text).to_s
+puts "\n"
+
+text = 'Pangram anyone? A quick brown fox jumped over the lazy dog. Pack my box with five dozen liquor jugs. A quick movement of the enemy will jeopardize six gunboats. The five boxing wizards jump quickly.'
+
+puts "text=#{text}\n\n"
+
+puts 'Nretnil::Translate.parseltongue(text)'
+puts '# => ' + Nretnil::Translate.parseltongue(text).to_s
+puts "\n"
+
+puts '```'
+puts "\n"
+
 puts '<h3>Pig Latin Translate</h3>'
 puts '<p>This will take each work in your text and translate it into Pig Latin.</p>'
 

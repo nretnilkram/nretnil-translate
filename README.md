@@ -1,6 +1,23 @@
-<h2>Version: 0.0.4</h2>
+<h2>Version: 0.0.5</h2>
 
 <h1>Usage:</h1>
+
+<h3>Parseltongue Translate</h3>
+<p>This function will take english words and translate them if they match known vocabulary; ignoring the rest.</p>
+
+```ruby
+
+text=I like to watch the animals play in the field from my window.
+
+Nretnil::Translate.parseltongue(text)
+# => Ai like to watch the animals play rine the girou from my vindovth.
+
+text=Pangram anyone? A quick brown fox jumped over the lazy dog. Pack my box with five dozen liquor jugs. A quick movement of the enemy will jeopardize six gunboats. The five boxing wizards jump quickly.
+
+Nretnil::Translate.parseltongue(text)
+# => Pangram anyone? A quick gara fox jumped over the lazy doʃe. Pack my bo∫ with five dozen liquor jugs. A quick movement of the enemy will jeopardize six gunboats. The five boxing wizards dinʃe ʃine.
+
+```
 
 <h3>Pig Latin Translate</h3>
 <p>This will take each work in your text and translate it into Pig Latin.</p>
@@ -25,6 +42,6 @@ Nretnil::Translate.pig_latin(text, true)
 text=Pangram anyone? A quick brown fox jumped over the lazy dog. Pack my box with five dozen liquor jugs. A quick movement of the enemy will jeopardize six gunboats. The five boxing wizards jump quickly.
 
 Nretnil::Translate.scramble(text)
-# => Pngraam anoyne? A qcuik bowrn fox jmpeud oevr the lazy dog. Pcak my box wtih fvie deozn liqour jugs. A qcuik mvemnoet of the eemny will joapdrziee six gabnotus. The fvie bixong wriadzs jmup qcuikly.
+# => Parganm aonyne? A qicuk borwn fox jpmeud over the lzay dog. Pack my box with five dezon lquior jgus. A qicuk mmveeont of the emney wlil jpadriozee six guonbtas. The five bioxng wirzads jmup qicukly.
 
 ```
