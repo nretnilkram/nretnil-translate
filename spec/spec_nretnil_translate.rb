@@ -97,7 +97,7 @@ describe 'Nretnil::Translate.scramble' do
     @phrase = 'The fish swam away.'
   end
 
-  it 'should produce a string translated into pig latin properly' do
+  it 'should produce a string with the same characters in a different order' do
     expect(Nretnil::Translate.scramble(@phrase).nil?).to be false
     expect(Nretnil::Translate.scramble(@phrase).is_a?(String)).to be true
     expect(Nretnil::Translate.scramble(@phrase).length).to eq @phrase.length
