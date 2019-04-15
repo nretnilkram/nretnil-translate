@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# encoding: UTF-8
 # frozen_string_literal: true
 
 require 'rubygems'
@@ -15,7 +14,7 @@ module Nretnil
 
     def word_to_pig_latin(word, learn_mode = LEARNMODE)
       first_letter = word[0, 1]
-      cap = first_letter == first_letter.upcase ? true : false
+      cap = first_letter == first_letter.upcase
       suffix = ''
 
       if !VOWELS.index(first_letter).nil? # If word starts with a vowel
@@ -39,7 +38,7 @@ module Nretnil
           suffix += first_letter # Build suffix with leading consonants
           last_letter = first_letter # Save last character (for "qu" testing)
 
-          cap_flag = (first_letter == first_letter.upcase) ? true : false # Capitalize flag
+          cap_flag = first_letter == first_letter.upcase # Capitalize flag
 
           word = word[1, word.length] # Remove first/next char of word
           first_letter = word[0, 1] # Get next/first char of new word

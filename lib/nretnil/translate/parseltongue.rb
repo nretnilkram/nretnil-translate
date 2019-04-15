@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# encoding: UTF-8
 # frozen_string_literal: true
 
 require 'rubygems'
@@ -57,7 +56,7 @@ module Nretnil
       how: 'baʃ  ',
       human: 'ʃem',
       i: 'ai',
-      in:  'rine',
+      in: 'rine',
       jump: 'dinʃe',
       lake: 'negei',
       lamp: 'slanp',
@@ -121,9 +120,13 @@ module Nretnil
       youngster: 'iangsteur'
     }.freeze
 
+    def parseltongue_map
+      PARSELTONGUE_MAP
+    end
+
     def word_to_parseltongue(word)
       first_letter = word[0, 1]
-      cap = first_letter == first_letter.upcase ? true : false
+      cap = first_letter == first_letter.upcase
 
       transalted_word = PARSELTONGUE_MAP[word.to_sym.downcase].nil? ? word : PARSELTONGUE_MAP[word.to_sym.downcase]
 
